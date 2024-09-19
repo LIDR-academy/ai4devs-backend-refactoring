@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# mypy
+mypy_cache/
+.dmypy.json
+
+# Environment variables
+.env    
+
+# NodeJS
+node_modules
+dist
+tsconfig.json
+package-lock.json

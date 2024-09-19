@@ -1,0 +1,6 @@
+Flask==2.3.2
+mypy
+types-Flask
+gunicorn
+psycopg2-binary
+flask_sqlalchemy
