@@ -25,7 +25,7 @@ To get started follow these steps:
 
 ```bash
 cd starter
-docker-compose up --d / docker compose up --build
+docker compose up / docker compose up -d
 ```
 
 ## Running tests
