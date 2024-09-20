@@ -26,7 +26,7 @@ This project showcases the process of translating a Python-based backend applica
     - [3. checkpoints/starter-to-node-redis](#3-checkpointsstarter-to-node-redis)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+    - [Installation and Usage](#installation-and-usage)
 
 ## Project Overview
 
@@ -92,7 +92,7 @@ Follow these instructions to set up and run the project locally.
 
 - **Docker** & **Docker Compose**
 
-### Installation
+### Installation and Usage
 
 1. **Clone the Repository**
 
