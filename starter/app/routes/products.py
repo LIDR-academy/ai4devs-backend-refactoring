@@ -11,7 +11,7 @@ def get_products() -> Response:
     return make_response(jsonify({'products': [product.to_dict() for product in products]}), 200)
 
 @products_bp.route('/products/<int:id>', methods=['GET'])
-def get_product(id: int) -> Response: 
+def get_product(id: int) -> Response:
     product = Product.query.get(id)
     if product:
         return make_response(jsonify(product.to_dict()), 200)
@@ -19,18 +19,22 @@ def get_product(id: int) -> Response:
         return make_response(jsonify({'message': 'Product not found'}), 404)
 
 @products_bp.route('/products', methods=['POST'])
-def create_product() -> Response: 
+def create_product() -> Response:
     new_product = Product(
         name=request.json['name'],
         price=request.json['price'],
         description=request.json.get('description', '')
     )
     db.session.add(new_product)
-    db.session.commit()
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return make_response(jsonify({'message': 'Product with this ID already exists'}), 400)
     return make_response(jsonify(new_product.to_dict()), 201)
 
 @products_bp.route('/products/<int:id>', methods=['PUT'])
-def update_product(id: int) -> Response: 
+def update_product(id: int) -> Response:
     product = Product.query.get(id)
     if product:
         product.name = request.json.get('name', product.name)
